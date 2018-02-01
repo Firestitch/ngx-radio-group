@@ -1,9 +1,9 @@
 {
-  "name": "@firestitch/list",
+  "name": "@firestitch/radiogroup",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Firestitch/fs-list"
+    "url": "https://github.com/Firestitch/fs-radio-group"
   },
   "author": {
     "name": "Firestitch",
@@ -14,7 +14,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Firestitch/fs-list/issues"
+    "url": "https://github.com/Firestitch/fs-radio-group/issues"
   },
   "main": "package/index.js",
   "typings": "package/index.d.ts",
@@ -65,6 +65,7 @@
     "gulp-replace": "^0.6.1",
     "inquirer": "^4.0.1",
     "@firestitch/common": "^0.1.22",
+    "@firestitch/example": "^0.1.3",
     "ucfirst": "^1.0.0",
     "gulp-regex-rename": "^0.1.0",
     "gulp-babel": "^7.0.0",
