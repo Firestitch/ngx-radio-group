@@ -8,7 +8,7 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, ":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  -webkit-transform: scale(0.75) translateZ(0.001px);\n          transform: scale(0.75) translateZ(0.001px);\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n", "", {"version":3,"sources":["C:/Projects/fs-radio-group/src/C:/Projects/fs-radio-group/src/src/fsradiogroup.component.scss","C:/Projects/fs-radio-group/src/C:/Projects/fs-radio-group/fsradiogroup.component.scss"],"names":[],"mappings":"AAAA;EACE,mBAAA;EACA,sBAAA;EACA,iBAAA;EACA,sBAAA;CCCD;;ADED;EACE,eAAA;EACA,OAAA;EACA,mDAAA;UAAA,2CAAA;EACA,8BAAA;UAAA,sBAAA;CCCD;;ADIC;EACE,kBAAA;CCDH;;ADFD;EAOM,kBAAA;CCDL;;ADAgC;EAIvB,eAAA;CCAT;;ADVD;EAeM,eAAA;CCDL","file":"fsradiogroup.component.scss","sourcesContent":[":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(.75) translateZ(.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep {\n\n  .mat-radio-label {\n    line-height: 29px;\n  }\n\n  mat-radio-group:not(.vertical) mat-radio-button {\n      margin-left: 15px;\n\n      &:first-child {\n          margin-left: 0;\n      }\n  }\n\n  mat-radio-group.vertical mat-radio-button {\n      display: block;\n  }\n}\n\n",":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(0.75) translateZ(0.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n"],"sourceRoot":""}]);
+exports.push([module.i, ":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  -webkit-transform: scale(0.75) translateZ(0.001px);\n          transform: scale(0.75) translateZ(0.001px);\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n", "", {"version":3,"sources":["/Users/mendor/work/fs-radio-group/src/src/fsradiogroup.component.scss","/Users/mendor/work/fs-radio-group/fsradiogroup.component.scss"],"names":[],"mappings":"AAAA;EACE,mBAAA;EACA,sBAAA;EACA,iBAAA;EACA,sBAAA;CCCD;;ADED;EACE,eAAA;EACA,OAAA;EACA,mDAAA;UAAA,2CAAA;EACA,8BAAA;UAAA,sBAAA;CCCD;;ADIC;EACE,kBAAA;CCDH;;ADFD;EAOM,kBAAA;CCDL;;ADAgC;EAIvB,eAAA;CCAT;;ADVD;EAeM,eAAA;CCDL","file":"fsradiogroup.component.scss","sourcesContent":[":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(.75) translateZ(.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep {\n\n  .mat-radio-label {\n    line-height: 29px;\n  }\n\n  mat-radio-group:not(.vertical) mat-radio-button {\n      margin-left: 15px;\n\n      &:first-child {\n          margin-left: 0;\n      }\n  }\n\n  mat-radio-group.vertical mat-radio-button {\n      display: block;\n  }\n}\n\n",":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(0.75) translateZ(0.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -46,40 +46,77 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../node_modules/@angular/core/esm2015/core.js");
+var material_1 = __webpack_require__("../node_modules/@angular/material/esm2015/material.js");
 var fsradiogroup_value_accessor_1 = __webpack_require__("../src/fsradiogroup.value-accessor.ts");
+var forms_1 = __webpack_require__("../node_modules/@angular/forms/esm2015/forms.js");
 var FsRadioGroupComponent = (function () {
     function FsRadioGroupComponent() {
         this.orientation = 'horizontal';
+        this._onTouched = function () { };
+        this._onChange = function (value) { };
+        this.onFocused = function (event) { };
     }
+    FsRadioGroupComponent.prototype.ngAfterContentInit = function () {
+        for (var _i = 0, _a = this.contentChildren.toArray(); _i < _a.length; _i++) {
+            var button = _a[_i];
+            // Name is required
+            button.name = this.name;
+            button._elementRef.nativeElement.addEventListener('click', this.onClick(button), false);
+        }
+    };
+    FsRadioGroupComponent.prototype.onClick = function (button) {
+        var _this = this;
+        return function (event) {
+            _this.writeValue(button.value);
+        };
+    };
+    FsRadioGroupComponent.prototype.registerOnChange = function (fn) { this._onChange = fn; };
+    FsRadioGroupComponent.prototype.registerOnTouched = function (fn) { this._onTouched = fn; };
     FsRadioGroupComponent.prototype.writeValue = function (value) {
-        //if (!this.isEquals(value, this.innerValue)) {
-        //    this.innerValue = value;
-        //
+        if (value) {
+            this._onChange(value);
+            this.updateChecked(value);
+        }
     };
-    FsRadioGroupComponent.prototype.registerOnChange = function (fn) {
-        //this.onChangeCallback = fn;
+    FsRadioGroupComponent.prototype.updateChecked = function (value) {
+        for (var _i = 0, _a = this.contentChildren.toArray(); _i < _a.length; _i++) {
+            var button = _a[_i];
+            button.checked = button.value == value ? true : false;
+        }
     };
-    FsRadioGroupComponent.prototype.registerOnTouched = function (fn) {
-        //this.onTouchedCallback = fn;
+    FsRadioGroupComponent.prototype.ngOnDestroy = function () {
+        for (var _i = 0, _a = this.contentChildren.toArray(); _i < _a.length; _i++) {
+            var button = _a[_i];
+            button._elementRef.nativeElement.removeEventListener('click', this.onClick(button), false);
+        }
     };
     __decorate([
         core_1.Input('orientation'),
         __metadata("design:type", String)
     ], FsRadioGroupComponent.prototype, "orientation", void 0);
     __decorate([
-        core_1.Input('label'),
+        core_1.Input(),
         __metadata("design:type", Object)
     ], FsRadioGroupComponent.prototype, "label", void 0);
     __decorate([
-        core_1.Input('ngModel'),
+        core_1.Input(),
         __metadata("design:type", Object)
-    ], FsRadioGroupComponent.prototype, "model", void 0);
+    ], FsRadioGroupComponent.prototype, "name", void 0);
+    __decorate([
+        core_1.ContentChildren(material_1.MatRadioButton),
+        __metadata("design:type", core_1.QueryList)
+    ], FsRadioGroupComponent.prototype, "contentChildren", void 0);
+    __decorate([
+        core_1.ViewChild(material_1.MatRadioGroup),
+        __metadata("design:type", Object)
+    ], FsRadioGroupComponent.prototype, "matRadioGroup", void 0);
     FsRadioGroupComponent = __decorate([
         core_1.Component({
             selector: 'fs-radio-group',
-            template: "<div class=\"mat-form-field-label\">{{label}}</div>\n              <mat-radio-group [(ngModel)]=\"model\" [ngClass]=\"{ vertical: orientation=='vertical' }\">\n                <ng-content></ng-content>\n              </mat-radio-group>",
+            template: "<div class=\"mat-form-field-label\">{{ label }}</div>\n              <mat-radio-group [ngClass]=\"{ vertical: orientation=='vertical' }\">\n                <ng-content></ng-content>\n              </mat-radio-group>",
             styles: [__webpack_require__("../src/fsradiogroup.component.scss")],
-            providers: [fsradiogroup_value_accessor_1.RADIO_VALUE_ACCESSOR]
+            providers: [fsradiogroup_value_accessor_1.RADIO_VALUE_ACCESSOR],
+            viewProviders: [{ provide: forms_1.ControlContainer, useExisting: forms_1.NgForm }]
         })
     ], FsRadioGroupComponent);
     return FsRadioGroupComponent;
@@ -225,7 +262,7 @@ exports.AppComponent = AppComponent;
 /***/ "./app/components/horizontal/horizontal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<fs-radio-group [(ngModel)]=\"selected\" label=\"Radio Buttons\">\n    <mat-radio-button *ngFor=\"let item of items\" [value]=\"item\">{{ item.name }}</mat-radio-button>\n</fs-radio-group>\n\n<fieldset>\n    <legend>Selected</legend>\n    {{ selected | json }}\n</fieldset>\n"
+module.exports = "<form #form=\"ngForm\">\n  <fs-radio-group [(ngModel)]=\"selectedHorizontal\" label=\"Radio Buttons\" name=\"horizontal\">\n      <mat-radio-button *ngFor=\"let item of items\" [value]=\"item\">{{ item.name }}</mat-radio-button>\n  </fs-radio-group>\n\n  <div>\n    <button mat-raised-button (click)=\"change()\">Set Last</button>\n  </div>\n\n  <fieldset>\n      <legend>Selected</legend>\n      {{ selectedHorizontal | json }}\n  </fieldset>\n</form>\n"
 
 /***/ }),
 
@@ -244,7 +281,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../node_modules/@angular/core/esm2015/core.js");
 var HorizontalComponent = (function () {
     function HorizontalComponent() {
-        this.selected = [];
+        this.selectedHorizontal = null;
         this.items = [
             { name: 'Item 1', id: 1 },
             { name: 'Item 2', id: 2 },
@@ -252,6 +289,9 @@ var HorizontalComponent = (function () {
             { name: 'Item 4', id: 4 }
         ];
     }
+    HorizontalComponent.prototype.change = function () {
+        this.selectedHorizontal = this.items[3];
+    };
     HorizontalComponent = __decorate([
         core_1.Component({
             selector: 'horizontal',
@@ -268,7 +308,7 @@ exports.HorizontalComponent = HorizontalComponent;
 /***/ "./app/components/vertical/vertical.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<fs-radio-group [(ngModel)]=\"selected\" label=\"Radio Buttons\" orientation=\"vertical\">\n    <mat-radio-button *ngFor=\"let item of items\" [value]=\"item\">{{ item.name }}</mat-radio-button>\n</fs-radio-group>\n\n<fieldset>\n    <legend>Selected</legend>\n    {{ selected | json }}\n</fieldset>\n"
+module.exports = "<form #form=\"ngForm\">\n  <fs-radio-group [(ngModel)]=\"selected\" label=\"Radio Buttons\" orientation=\"vertical\" name=\"vertical\">\n      <mat-radio-button *ngFor=\"let item of items\" [value]=\"item\">{{ item.name }}</mat-radio-button>\n  </fs-radio-group>\n\n  <fieldset>\n      <legend>Selected</legend>\n      {{ selected | json }}\n  </fieldset>\n</form>\n"
 
 /***/ }),
 
@@ -287,7 +327,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../node_modules/@angular/core/esm2015/core.js");
 var VerticalComponent = (function () {
     function VerticalComponent() {
-        this.selected = [];
+        this.selected = null;
         this.items = [
             { name: 'Item 1', id: 1 },
             { name: 'Item 2', id: 2 },
@@ -295,6 +335,9 @@ var VerticalComponent = (function () {
             { name: 'Item 4', id: 4 }
         ];
     }
+    VerticalComponent.prototype.ngOnInit = function () {
+        this.selected = this.items[1];
+    };
     VerticalComponent = __decorate([
         core_1.Component({
             selector: 'vertical',

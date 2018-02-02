@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class HorizontalComponent {
 
-  selected: object[] = [];
+  selectedHorizontal = null;
 
   items = [
       { name: 'Item 1', id: 1 },
@@ -14,4 +14,8 @@ export class HorizontalComponent {
       { name: 'Item 3', id: 3 },
       { name: 'Item 4', id: 4 }
     ];
+
+  change() {
+    this.selectedHorizontal = this.items[3];
+  }
 }

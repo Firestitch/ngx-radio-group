@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'vertical',
   templateUrl: 'vertical.component.html'
 })
-export class VerticalComponent {
+export class VerticalComponent implements OnInit {
 
-  selected: object[] = [];
+  selected = null;
 
   items = [
       { name: 'Item 1', id: 1 },
@@ -14,4 +14,8 @@ export class VerticalComponent {
       { name: 'Item 3', id: 3 },
       { name: 'Item 4', id: 4 }
     ];
+
+  ngOnInit() {
+    this.selected = this.items[1];
+  }
 }
