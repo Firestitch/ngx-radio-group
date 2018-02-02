@@ -73,7 +73,7 @@ var FsRadioGroupComponent = (function () {
     FsRadioGroupComponent.prototype.registerOnChange = function (fn) { this._onChange = fn; };
     FsRadioGroupComponent.prototype.registerOnTouched = function (fn) { this._onTouched = fn; };
     FsRadioGroupComponent.prototype.writeValue = function (value) {
-        if (value) {
+        if (value != undefined) {
             this._onChange(value);
             this.updateChecked(value);
         }

@@ -45,7 +45,7 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
   registerOnTouched(fn: () => any): void { this._onTouched = fn }
 
   writeValue(value: any) {
-    if (value) {
+    if (value != undefined) {
       this._onChange(value);
       this.updateChecked(value);
     }
