@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("@angular/core"), require("@angular/common"), require("@angular/material"), require("@angular/forms"));
+		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("@firestitch/radiogroup", ["@angular/core", "@angular/common", "@angular/material", "@angular/forms"], factory);
+		define("@firestitch/radiogroup", [], factory);
 	else if(typeof exports === 'object')
-		exports["@firestitch/radiogroup"] = factory(require("@angular/core"), require("@angular/common"), require("@angular/material"), require("@angular/forms"));
+		exports["@firestitch/radiogroup"] = factory();
 	else
-		root["@firestitch/radiogroup"] = factory(root["@angular/core"], root["@angular/common"], root["@angular/material"], root["@angular/forms"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE__angular_core__, __WEBPACK_EXTERNAL_MODULE__angular_common__, __WEBPACK_EXTERNAL_MODULE__angular_material__, __WEBPACK_EXTERNAL_MODULE__angular_forms__) {
+		root["@firestitch/radiogroup"] = factory();
+})(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!./fsradiogroup.component.scss":
+/***/ "../node_modules/css-loader/index.js??ref--3-1!../node_modules/postcss-loader/lib/index.js??ref--3-2!../node_modules/resolve-url-loader/index.js??ref--3-3!../node_modules/sass-loader/lib/loader.js??ref--3-4!./fsradiogroup.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(true);
@@ -83,7 +83,7 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, ":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  -webkit-transform: scale(0.75) translateZ(0.001px);\n          transform: scale(0.75) translateZ(0.001px);\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n", "", {"version":3,"sources":["/Users/mendor/work/fs-radio-group/src/src/fsradiogroup.component.scss","/Users/mendor/work/fs-radio-group/fsradiogroup.component.scss"],"names":[],"mappings":"AAAA;EACE,mBAAA;EACA,sBAAA;EACA,iBAAA;EACA,sBAAA;CCCD;;ADED;EACE,eAAA;EACA,OAAA;EACA,mDAAA;UAAA,2CAAA;EACA,8BAAA;UAAA,sBAAA;CCCD;;ADIC;EACE,kBAAA;CCDH;;ADFD;EAOM,kBAAA;CCDL;;ADAgC;EAIvB,eAAA;CCAT;;ADVD;EAeM,eAAA;CCDL","file":"fsradiogroup.component.scss","sourcesContent":[":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(.75) translateZ(.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep {\n\n  .mat-radio-label {\n    line-height: 29px;\n  }\n\n  mat-radio-group:not(.vertical) mat-radio-button {\n      margin-left: 15px;\n\n      &:first-child {\n          margin-left: 0;\n      }\n  }\n\n  mat-radio-group.vertical mat-radio-button {\n      display: block;\n  }\n}\n\n",":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(0.75) translateZ(0.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n"],"sourceRoot":""}]);
+exports.push([module.i, ":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  -webkit-transform: scale(0.75) translateZ(0.001px);\n          transform: scale(0.75) translateZ(0.001px);\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n:host ::ng-deep mat-radio-group mat-hint {\n  font-size: 75%;\n  font-weight: 400;\n  line-height: 1.125;\n  display: block;\n  margin-top: 0.54166667em;\n}\n\n", "", {"version":3,"sources":["/Users/mendor/work/fs-radio-group/src/src/fsradiogroup.component.scss","/Users/mendor/work/fs-radio-group/src/fsradiogroup.component.scss"],"names":[],"mappings":"AAAA;EACE,mBAAA;EACA,sBAAA;EACA,iBAAA;EACA,sBAAA;CCCD;;ADED;EACE,eAAA;EACA,OAAA;EACA,mDAAA;UAAA,2CAAA;EACA,8BAAA;UAAA,sBAAA;CCCD;;ADED;EAGI,kBAAA;CCDH;;ADFD;EAOM,kBAAA;CCDL;;ADND;EAUU,eAAA;CCAT;;ADVD;EAeM,eAAA;CCDL;;ADdD;EAmBI,eAAA;EACA,iBAAA;EACA,mBAAA;EACA,eAAA;EACA,yBAAA;CCDH","file":"fsradiogroup.component.scss","sourcesContent":[":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(.75) translateZ(.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep {\n\n  .mat-radio-label {\n    line-height: 29px;\n  }\n\n  mat-radio-group:not(.vertical) mat-radio-button {\n      margin-left: 15px;\n\n      &:first-child {\n          margin-left: 0;\n      }\n  }\n\n  mat-radio-group.vertical mat-radio-button {\n      display: block;\n  }\n\n  mat-radio-group mat-hint {\n    font-size: 75%;\n    font-weight: 400;\n    line-height: 1.125;\n    display: block;\n    margin-top: 0.54166667em;\n  }\n}\n\n",":host {\n  position: relative;\n  padding-top: .84375em;\n  min-height: 30px;\n  display: inline-block;\n}\n\n.mat-form-field-label {\n  display: block;\n  top: 0;\n  transform: scale(0.75) translateZ(0.001px);\n  transform-origin: 0 0;\n}\n\n:host ::ng-deep .mat-radio-label {\n  line-height: 29px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button {\n  margin-left: 15px;\n}\n\n:host ::ng-deep mat-radio-group:not(.vertical) mat-radio-button:first-child {\n  margin-left: 0;\n}\n\n:host ::ng-deep mat-radio-group.vertical mat-radio-button {\n  display: block;\n}\n\n:host ::ng-deep mat-radio-group mat-hint {\n  font-size: 75%;\n  font-weight: 400;\n  line-height: 1.125;\n  display: block;\n  margin-top: 0.54166667em;\n}\n\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -177,7 +177,7 @@ function toComment(sourceMap) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-        var result = __webpack_require__("../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!./fsradiogroup.component.scss");
+        var result = __webpack_require__("../node_modules/css-loader/index.js??ref--3-1!../node_modules/postcss-loader/lib/index.js??ref--3-2!../node_modules/resolve-url-loader/index.js??ref--3-3!../node_modules/sass-loader/lib/loader.js??ref--3-4!./fsradiogroup.component.scss");
 
         if (typeof result === "string") {
             module.exports = result;
@@ -360,28 +360,28 @@ exports.FsRadioGroupModule = FsRadioGroupModule;
 /***/ "@angular/common":
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__angular_common__;
+module.exports = require("@angular/common");
 
 /***/ }),
 
 /***/ "@angular/core":
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__angular_core__;
+module.exports = require("@angular/core");
 
 /***/ }),
 
 /***/ "@angular/forms":
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__angular_forms__;
+module.exports = require("@angular/forms");
 
 /***/ }),
 
 /***/ "@angular/material":
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__angular_material__;
+module.exports = require("@angular/material");
 
 /***/ })
 
