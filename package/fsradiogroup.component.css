@@ -5,6 +5,8 @@
   display: inline-block; }
   :host.ng-invalid.ng-dirty /deep/ mat-hint {
     display: none !important; }
+  :host /deep/ .mat-form-field-subscript-wrapper {
+    top: calc(100% - 8px); }
 
 .mat-form-field-label {
   display: block;

@@ -3,10 +3,14 @@
   padding-top: .84375em;
   min-height: 30px;
   display: inline-block;
+  // Hide hint if error message
   &.ng-invalid.ng-dirty {
     /deep/ mat-hint {
       display: none !important;
     }
+  }
+  /deep/ .mat-form-field-subscript-wrapper {
+    top: calc(100% - 8px);
   }
 }
 
