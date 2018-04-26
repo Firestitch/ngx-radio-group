@@ -226,7 +226,7 @@ webpackEmptyAsyncContext.id = "../tools lazy recursive";
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Radio Button Group Examples</h1>\n<div class=\"example\">\n    <fs-example title=\"Horizontal Radio Button Group\" componentName=\"horizontal\">\n        <horizontal></horizontal>\n    </fs-example>\n</div>\n\n<div class=\"example\">\n    <fs-example title=\"Vertical Radio Button Group\" componentName=\"vertical\">\n        <vertical></vertical>\n    </fs-example>\n</div>\n"
+module.exports = "<fs-examples title=\"Radio Buttons\">\n  <fs-example title=\"Horizontal Radio Button Group\" componentName=\"horizontal\">\n    <horizontal></horizontal>\n  </fs-example>\n\n  <fs-example title=\"Vertical Radio Button Group\" componentName=\"vertical\">\n    <vertical></vertical>\n  </fs-example>\n</fs-examples>\n"
 
 /***/ }),
 
