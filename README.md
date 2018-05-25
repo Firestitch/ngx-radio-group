@@ -1,10 +1,10 @@
-# Firestitch Component Boilerplate
+# Firestitch Radio Group
 
 ## How to use
 
 ```bash
-git clone https://github.com/Firestitch/component-boilerplate.git
-cd componenent-boilerplate
+git clone https://github.com/Firestitch/fs-radio-group.git
+cd fs-radio-goup
 git submodule init
 git submodule update
 npm install
