@@ -1,0 +1,51 @@
+.mat-form-field-label {
+  display: block;
+  top: 0;
+  transform: scale(.75);
+  transform-origin: 0 0;
+}
+
+:host {
+
+  position: relative;
+  min-height: 45px;
+  display: inline-block;
+  padding-bottom: 1.25em;
+
+  &.ng-invalid.ng-dirty ::ng-deep mat-hint {
+    display: none !important;
+  }
+
+  ::ng-deep {
+
+    .mat-form-field-subscript-wrapper {
+      position: absolute;
+      margin-top: 0.54167em;
+      top: calc(100% - 1.66667em);
+    }
+
+    mat-radio-group:not(.vertical) mat-radio-button {
+        margin-right: 15px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    mat-radio-group.vertical mat-radio-button {
+        display: block;
+    }
+
+    .mat-radio-label-content {
+      line-height: 26px;
+    }
+
+    mat-hint {
+      font-size: 75%;
+      position: absolute;
+      display: block;
+      margin-top: 0.54167em;
+      top: calc(100% - 1.66667em);
+    }
+  }
+}

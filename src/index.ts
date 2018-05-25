@@ -1,11 +1,10 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FsRadioGroupComponent } from './fsradiogroup.component';
+import { FsRadioGroupComponent } from './components/radiogroup/radiogroup.component';
 import { FsCommonModule } from '@firestitch/common';
 import { MatRadioModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
-export * from './fsradiogroup.component';
 
 @NgModule({
 imports: [

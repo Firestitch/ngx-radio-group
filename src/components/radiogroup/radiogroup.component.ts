@@ -1,16 +1,13 @@
 import { Component, Input, ContentChildren, QueryList, ViewChild, AfterContentInit, OnDestroy } from '@angular/core';
 import { FsArray } from '@firestitch/common';
 import { MatRadioButton, MatRadioGroup } from '@angular/material';
-import { RADIO_VALUE_ACCESSOR } from './fsradiogroup.value-accessor';
+import { RADIO_VALUE_ACCESSOR } from './../../fsradiogroup.value-accessor';
 import { NgForm, ControlContainer } from '@angular/forms';
 
 @Component({
    selector: 'fs-radio-group',
-   template: `<div class="mat-form-field-label">{{ label }}</div>
-              <mat-radio-group [ngClass]="{ vertical: orientation=='vertical' }">
-                <ng-content></ng-content>
-              </mat-radio-group>`,
-   styleUrls: [ 'fsradiogroup.component.scss' ],
+   templateUrl: './radiogroup.component.html',
+   styleUrls: [ 'radiogroup.component.scss' ],
    providers: [RADIO_VALUE_ACCESSOR],
    viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 })

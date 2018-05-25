@@ -1,12 +1,8 @@
-<form #form="ngForm" fsForm [fsFormBinding]="form">
+<form fsForm>
   <fs-radio-group [(ngModel)]="selectedHorizontal" fsFormRequired label="Radio Buttons" name="horizontal">
       <mat-radio-button *ngFor="let item of items" [value]="item">{{ item.name }}</mat-radio-button>
       <mat-hint>Hint hint hint!</mat-hint>
   </fs-radio-group>
-
-  <div>
-    <button type="button" mat-raised-button (click)="change()">Set Last</button>
-  </div>
 
   <fieldset>
       <legend>Selected</legend>

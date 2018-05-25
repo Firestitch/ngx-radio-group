@@ -1,4 +1,4 @@
-import { FsRadioGroupComponent } from './fsradiogroup.component';
+import { FsRadioGroupComponent } from './components/radiogroup/radiogroup.component';
 import { Provider, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
