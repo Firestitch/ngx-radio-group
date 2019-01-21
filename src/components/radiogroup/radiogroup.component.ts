@@ -1,8 +1,11 @@
 import { Component, Input, ContentChildren, QueryList, ViewChild, AfterContentInit, OnDestroy } from '@angular/core';
-import { FsArray } from '@firestitch/common';
-import { MatRadioButton, MatRadioGroup } from '@angular/material';
-import { RADIO_VALUE_ACCESSOR } from './../../fsradiogroup.value-accessor';
 import { NgForm, ControlContainer } from '@angular/forms';
+import { MatRadioButton, MatRadioGroup } from '@angular/material';
+
+import { FsArray } from '@firestitch/common';
+
+import { RADIO_VALUE_ACCESSOR } from './../../fsradiogroup.value-accessor';
+
 
 @Component({
    selector: 'fs-radio-group',
@@ -13,14 +16,14 @@ import { NgForm, ControlContainer } from '@angular/forms';
 })
 export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
 
-  @Input('orientation') orientation: 'horizontal' | 'vertical' = 'horizontal';
-  @Input() label;
-  @Input() name;
+  @Input('orientation') public orientation: 'horizontal' | 'vertical' = 'horizontal';
+  @Input() public label;
+  @Input() public name;
 
-  @ContentChildren(MatRadioButton) contentChildren: QueryList<MatRadioButton>;
-  @ViewChild(MatRadioGroup) matRadioGroup;
+  @ContentChildren(MatRadioButton) public contentChildren: QueryList<MatRadioButton>;
+  @ViewChild(MatRadioGroup) public matRadioGroup = null;
 
-  ngAfterContentInit() {
+  public ngAfterContentInit() {
     for (let button of this.contentChildren.toArray()) {
       // Name is required
       button.name = this.name;
@@ -28,33 +31,38 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
     }
   }
 
-  onClick(button) {
+  public onClick(button) {
+
+    if (button.disabled) {
+      return;
+    }
+
     return event => {
       this.writeValue(button.value);
     }
   }
 
-  _onTouched = () => { };
-  _onChange = (value: any) => { };
-  onFocused = (event: any) => { };
+  public _onTouched = () => { };
+  public _onChange = (value: any) => { };
+  public onFocused = (event: any) => { };
 
-  registerOnChange(fn: (value: any) => any): void { this._onChange = fn }
-  registerOnTouched(fn: () => any): void { this._onTouched = fn }
+  public registerOnChange(fn: (value: any) => any): void { this._onChange = fn }
+  public registerOnTouched(fn: () => any): void { this._onTouched = fn }
 
-  writeValue(value: any) {
+  public writeValue(value: any) {
     if (value != undefined) {
       this._onChange(value);
       this.updateChecked(value);
     }
   }
 
-  updateChecked(value) {
+  public updateChecked(value) {
     for (let button of this.contentChildren.toArray()) {
       button.checked = button.value == value ? true : false;
     }
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     for (let button of this.contentChildren.toArray()) {
       button._elementRef.nativeElement.removeEventListener('click', this.onClick(button), false);
     }
