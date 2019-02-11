@@ -1,22 +1,34 @@
-import { Component, Input, ContentChildren, QueryList, ViewChild, AfterContentInit, OnDestroy } from '@angular/core';
-import { NgForm, ControlContainer } from '@angular/forms';
+import {
+  Component,
+  Input,
+  ContentChildren,
+  QueryList,
+  ViewChild,
+  AfterContentInit,
+  OnDestroy,
+  Provider,
+  forwardRef
+} from '@angular/core';
+import { NgForm, ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatRadioButton, MatRadioGroup } from '@angular/material';
 
-import { FsArray } from '@firestitch/common';
-
-import { RADIO_VALUE_ACCESSOR } from './../../fsradiogroup.value-accessor';
+export const RADIO_VALUE_ACCESSOR: Provider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => FsRadioGroupComponent),
+  multi: true
+};
 
 
 @Component({
    selector: 'fs-radio-group',
-   templateUrl: './radiogroup.component.html',
-   styleUrls: [ 'radiogroup.component.scss' ],
+   templateUrl: './radio-group.component.html',
+   styleUrls: [ 'radio-group.component.scss' ],
    providers: [RADIO_VALUE_ACCESSOR],
    viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 })
 export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
 
-  @Input('orientation') public orientation: 'horizontal' | 'vertical' = 'horizontal';
+  @Input() public orientation: 'horizontal' | 'vertical' = 'horizontal';
   @Input() public label;
   @Input() public name;
 
@@ -24,7 +36,7 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
   @ViewChild(MatRadioGroup) public matRadioGroup = null;
 
   public ngAfterContentInit() {
-    for (let button of this.contentChildren.toArray()) {
+    for (const button of this.contentChildren.toArray()) {
       // Name is required
       button.name = this.name;
       button._elementRef.nativeElement.addEventListener('click', this.onClick(button), false);
@@ -57,13 +69,13 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
   }
 
   public updateChecked(value) {
-    for (let button of this.contentChildren.toArray()) {
-      button.checked = button.value == value ? true : false;
+    for (const button of this.contentChildren.toArray()) {
+      button.checked = button.value == value;
     }
   }
 
   public ngOnDestroy() {
-    for (let button of this.contentChildren.toArray()) {
+    for (const button of this.contentChildren.toArray()) {
       button._elementRef.nativeElement.removeEventListener('click', this.onClick(button), false);
     }
   }

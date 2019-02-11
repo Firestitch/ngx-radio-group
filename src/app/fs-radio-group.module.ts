@@ -1,9 +1,9 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FsRadioGroupComponent } from './components/radiogroup/radiogroup.component';
-import { FsCommonModule } from '@firestitch/common';
 import { MatRadioModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+
+import { FsRadioGroupComponent } from './components/radio-group/radio-group.component';
 
 
 @NgModule({
@@ -21,10 +21,10 @@ exports: [
 ]
 })
 export class FsRadioGroupModule {
-  static forRoot(): ModuleWithProviders {
+  /*static forRoot(): ModuleWithProviders {
     return {
       ngModule: FsRadioGroupModule,
       providers: []
     };
-  }
+  }*/
 }
