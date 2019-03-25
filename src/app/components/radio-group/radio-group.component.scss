@@ -1,17 +1,8 @@
-.mat-form-field-label {
-  display: block;
-  top: 0;
-  transform: scale(.75);
-  transform-origin: 0 0;
-  position: relative;
-}
+
 
 :host {
-
   position: relative;
-  min-height: 45px;
-  display: inline-block;
-  padding-bottom: 1.25em;
+  display: inline-flex;
 
   &.ng-invalid.ng-dirty ::ng-deep mat-hint {
     display: none !important;
@@ -19,10 +10,12 @@
 
   ::ng-deep {
 
+    fs-label-field {
+      position: relative;
+    }
+
     .mat-form-field-subscript-wrapper {
       position: absolute;
-      margin-top: 0.54167em;
-      top: calc(100% - 1.66667em);
     }
 
     mat-radio-group:not(.vertical) mat-radio-button {
@@ -45,8 +38,7 @@
       font-size: 75%;
       position: absolute;
       display: block;
-      margin-top: 0.54167em;
-      top: calc(100% - 1.66667em);
+      margin-top: 0.66666667em;
     }
   }
 }

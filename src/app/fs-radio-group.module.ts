@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatRadioModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { FsLabelModule } from '@firestitch/label';
 
 import { FsRadioGroupComponent } from './components/radio-group/radio-group.component';
 
@@ -10,21 +11,15 @@ import { FsRadioGroupComponent } from './components/radio-group/radio-group.comp
 imports: [
     CommonModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    FsLabelModule
 ],
 declarations: [
     FsRadioGroupComponent
 ],
-providers: [],
 exports: [
   FsRadioGroupComponent
 ]
 })
 export class FsRadioGroupModule {
-  /*static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: FsRadioGroupModule,
-      providers: []
-    };
-  }*/
 }

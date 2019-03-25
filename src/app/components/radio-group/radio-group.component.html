@@ -1,5 +1,7 @@
-<div class="mat-form-field-label">{{ label }}</div>
-<mat-radio-group [ngClass]="{ vertical: orientation=='vertical' }">
-  <ng-content select="mat-radio-button"></ng-content>
-</mat-radio-group>
-<ng-content select="mat-hint"></ng-content>
+<fs-label-field>
+  <fs-label>{{label}}</fs-label>
+  <mat-radio-group [ngClass]="{ vertical: orientation=='vertical' }">
+    <ng-content select="mat-radio-button"></ng-content>
+  </mat-radio-group>
+  <ng-content select="mat-hint"></ng-content>
+</fs-label-field>

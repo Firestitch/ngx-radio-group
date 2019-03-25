@@ -36,10 +36,10 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
   @ViewChild(MatRadioGroup) public matRadioGroup = null;
 
   public ngAfterContentInit() {
-    for (const button of this.contentChildren.toArray()) {
+    for (const radio of this.contentChildren.toArray()) {
       // Name is required
-      button.name = this.name;
-      button._elementRef.nativeElement.addEventListener('click', this.onClick(button), false);
+      radio.name = this.name;
+      radio._elementRef.nativeElement.addEventListener('click', this.onClick(radio), false);
     }
   }
 
@@ -50,20 +50,17 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
     }
 
     return event => {
-      this.writeValue(button.value);
+      this._onChange(button.value);
     }
   }
 
-  public _onTouched = () => { };
   public _onChange = (value: any) => { };
-  public onFocused = (event: any) => { };
 
   public registerOnChange(fn: (value: any) => any): void { this._onChange = fn }
-  public registerOnTouched(fn: () => any): void { this._onTouched = fn }
+  public registerOnTouched(fn: () => any): void {  }
 
   public writeValue(value: any) {
     if (value != undefined) {
-      this._onChange(value);
       this.updateChecked(value);
     }
   }
