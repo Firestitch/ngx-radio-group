@@ -3,5 +3,9 @@
   <mat-radio-group [ngClass]="{ vertical: orientation=='vertical' }">
     <ng-content select="mat-radio-button"></ng-content>
   </mat-radio-group>
-  <ng-content select="mat-hint"></ng-content>
+  <div class="fs-form-message-wrapper">
+    <div class="fs-form-hint-wrapper">
+      <ng-content select="mat-hint"></ng-content>
+    </div>
+  </div>
 </fs-label-field>

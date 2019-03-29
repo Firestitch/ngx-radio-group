@@ -4,18 +4,17 @@
   position: relative;
   display: inline-flex;
 
-  &.ng-invalid.ng-dirty ::ng-deep mat-hint {
-    display: none !important;
-  }
-
   ::ng-deep {
 
     fs-label-field {
       position: relative;
     }
 
-    .mat-form-field-subscript-wrapper {
+    .fs-form-message-wrapper {
       position: absolute;
+      top: unset;
+      margin-top: 3px;
+      font-size: 75%;
     }
 
     mat-radio-group:not(.vertical) mat-radio-button {
@@ -32,13 +31,6 @@
 
     .mat-radio-label-content {
       line-height: 26px;
-    }
-
-    mat-hint {
-      font-size: 75%;
-      position: absolute;
-      display: block;
-      margin-top: 0.66666667em;
     }
   }
 }
