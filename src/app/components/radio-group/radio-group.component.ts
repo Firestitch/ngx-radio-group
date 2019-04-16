@@ -7,7 +7,8 @@ import {
   AfterContentInit,
   OnDestroy,
   Provider,
-  forwardRef
+  forwardRef,
+  HostBinding
 } from '@angular/core';
 import { NgForm, ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatRadioButton, MatRadioGroup } from '@angular/material';
@@ -34,6 +35,8 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
 
   @ContentChildren(MatRadioButton) public contentChildren: QueryList<MatRadioButton>;
   @ViewChild(MatRadioGroup) public matRadioGroup = null;
+
+  @HostBinding('class.fs-form-wrapper') formWrapper = true;
 
   public ngAfterContentInit() {
     for (const radio of this.contentChildren.toArray()) {

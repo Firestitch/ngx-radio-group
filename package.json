@@ -1,7 +1,7 @@
 {
   "name": "@firestitch/radiogroup",
   "title": "Radio Button Group",
-  "version": "7.2.0",
+  "version": "7.2.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/ngx-radio-group"
@@ -47,7 +47,7 @@
     "@firestitch/example": "^7.0.0",
     "@firestitch/form": "^7.3.0",
     "@firestitch/message": "^7.0.0",
-    "@firestitch/label": "^7.0.0",
+    "@firestitch/label": "^7.1.2",
     "codelyzer": "^4.5.0",
     "cpx": "^1.5.0",
     "ng-packagr": "^4.7.0",
@@ -68,6 +68,6 @@
   "peerDependencies": {
     "rxjs": ">=6.4.0",
     "zone.js": ">=0.8.20",
-    "@firestitch/label": ">=7.0.0"
+    "@firestitch/label": ">=7.1.2"
   }
 }

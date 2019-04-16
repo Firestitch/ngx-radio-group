@@ -10,11 +10,10 @@
       position: relative;
     }
 
-    .fs-form-message-wrapper {
+    .fs-form-message {
       position: absolute;
       top: unset;
       margin-top: 3px;
-      font-size: 75%;
     }
 
     mat-radio-group:not(.vertical) mat-radio-button {
