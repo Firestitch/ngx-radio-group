@@ -47,7 +47,7 @@
     "@firestitch/example": "^7.0.0",
     "@firestitch/form": "^7.3.0",
     "@firestitch/message": "^7.0.0",
-    "@firestitch/label": "^7.1.2",
+    "@firestitch/label": "^7.1.9",
     "codelyzer": "^4.5.0",
     "cpx": "^1.5.0",
     "ng-packagr": "^4.7.0",
