@@ -10,7 +10,7 @@ import {
   forwardRef,
   HostBinding
 } from '@angular/core';
-import { NgForm, ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NgForm, ControlContainer, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { MatRadioButton, MatRadioGroup } from '@angular/material';
 
 export const RADIO_VALUE_ACCESSOR: Provider = {
@@ -27,11 +27,12 @@ export const RADIO_VALUE_ACCESSOR: Provider = {
    providers: [RADIO_VALUE_ACCESSOR],
    viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 })
-export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
+export class FsRadioGroupComponent implements ControlValueAccessor, AfterContentInit, OnDestroy {
 
   @Input() public orientation: 'horizontal' | 'vertical' = 'horizontal';
   @Input() public label;
   @Input() public name;
+  @Input() public disabled;
 
   @ContentChildren(MatRadioButton) public contentChildren: QueryList<MatRadioButton>;
   @ViewChild(MatRadioGroup) public matRadioGroup = null;
@@ -39,22 +40,20 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
   @HostBinding('class.fs-form-wrapper') formWrapper = true;
 
   public ngAfterContentInit() {
-    for (const radio of this.contentChildren.toArray()) {
+    this.contentChildren.forEach((btn) => {
       // Name is required
-      radio.name = this.name;
-      radio._elementRef.nativeElement.addEventListener('click', this.onClick(radio), false);
-    }
+      btn.name = this.name;
+      btn._elementRef.nativeElement.addEventListener('click', this.onClick(btn), false);
+    });
   }
 
   public onClick(button) {
 
-    if (button.disabled) {
-      return;
-    }
-
-    return event => {
-      this._onChange(button.value);
-    }
+    return () => {
+      if (!button.disabled) {
+        this._onChange(button.value);
+      }
+    };
   }
 
   public _onChange = (value: any) => { };
@@ -78,5 +77,13 @@ export class FsRadioGroupComponent implements AfterContentInit, OnDestroy {
     for (const button of this.contentChildren.toArray()) {
       button._elementRef.nativeElement.removeEventListener('click', this.onClick(button), false);
     }
+  }
+
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+
+    this.contentChildren.forEach((btn) => {
+      btn.disabled = this.disabled;
+    })
   }
 }
