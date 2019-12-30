@@ -1,18 +1,18 @@
 import {
-  Component,
-  Input,
-  ContentChildren,
-  QueryList,
-  ViewChild,
   AfterContentInit,
-  OnDestroy,
-  Provider,
+  ChangeDetectionStrategy,
+  Component,
+  ContentChildren,
   forwardRef,
   HostBinding,
-  OnInit
+  Input,
+  OnDestroy,
+  Provider,
+  QueryList,
+  ViewChild
 } from '@angular/core';
-import { NgForm, ControlContainer, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { MatRadioButton, MatRadioGroup } from '@angular/material';
+import { ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -24,11 +24,12 @@ export const RADIO_VALUE_ACCESSOR: Provider = {
 
 
 @Component({
-   selector: 'fs-radio-group',
-   templateUrl: './radio-group.component.html',
-   styleUrls: [ 'radio-group.component.scss' ],
-   providers: [RADIO_VALUE_ACCESSOR],
-   viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
+  selector: 'fs-radio-group',
+  templateUrl: './radio-group.component.html',
+  styleUrls: [ 'radio-group.component.scss' ],
+  providers: [RADIO_VALUE_ACCESSOR],
+  viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsRadioGroupComponent implements ControlValueAccessor, AfterContentInit, OnDestroy {
 
@@ -40,7 +41,7 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   @ContentChildren(MatRadioButton)
   public contentChildren: QueryList<MatRadioButton>;
 
-  @ViewChild(MatRadioGroup)
+  @ViewChild(MatRadioGroup, { static: true })
   public matRadioGroup = null;
 
   @HostBinding('class.fs-form-wrapper')
