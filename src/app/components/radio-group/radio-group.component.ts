@@ -38,6 +38,9 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   @Input() public name;
   @Input() public disabled;
 
+  @Input()
+  public compareWith = (o1: any, o2: any) => { return o1 === o2};
+
   @ContentChildren(MatRadioButton)
   public contentChildren: QueryList<MatRadioButton>;
 
@@ -97,7 +100,7 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
 
   public updateChecked(value) {
     for (const button of this.contentChildren.toArray()) {
-      button.checked = button.value == value;
+      button.checked = this.compareWith(button.value, value);
     }
   }
 
