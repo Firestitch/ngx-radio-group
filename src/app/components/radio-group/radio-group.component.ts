@@ -99,8 +99,10 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   }
 
   public updateChecked(value) {
-    for (const button of this.contentChildren.toArray()) {
-      button.checked = this.compareWith(button.value, value);
+    if (this.contentChildren) {
+      for (const button of this.contentChildren.toArray()) {
+        button.checked = this.compareWith(button.value, value);
+      }
     }
   }
 
