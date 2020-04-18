@@ -5,16 +5,6 @@
 
   ::ng-deep {
 
-    fs-label-field {
-      position: relative;
-    }
-
-    .fs-form-message {
-      position: absolute;
-      top: unset;
-      margin-top: 3px;
-    }
-
     mat-radio-group:not(.vertical) mat-radio-button {
         margin-right: 15px;
 
