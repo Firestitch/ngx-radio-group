@@ -12,31 +12,29 @@ import {
   ViewChild
 } from '@angular/core';
 import { ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
-import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { MatRadioButton, MatRadioGroup, MatRadioChange } from '@angular/material/radio';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
-export const RADIO_VALUE_ACCESSOR: Provider = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => FsRadioGroupComponent),
-  multi: true
-};
-
 
 @Component({
   selector: 'fs-radio-group',
   templateUrl: './radio-group.component.html',
   styleUrls: [ 'radio-group.component.scss' ],
-  providers: [RADIO_VALUE_ACCESSOR],
+  providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FsRadioGroupComponent),
+      multi: true
+    }
+  ],
   viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsRadioGroupComponent implements ControlValueAccessor, AfterContentInit, OnDestroy {
 
   @Input() public orientation: 'horizontal' | 'vertical' = 'horizontal';
-  @Input() public label;
-  @Input() public name;
-  @Input() public disabled;
+  @Input() public label: string;
+  @Input() public name: string;
+  @Input() public disabled: boolean;
 
   @Input()
   public compareWith = (o1: any, o2: any) => { return o1 === o2};
@@ -54,11 +52,7 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
 
   public ngAfterContentInit() {
     this.contentChildren.forEach((children) => {
-
       this._listenButtonChange(children);
-
-
-      // children._elementRef.nativeElement.addEventListener('click', this.onClick(children), false);
     });
 
     this.contentChildren.changes
@@ -66,26 +60,9 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
         takeUntil(this._destroy$),
       )
       .subscribe((children: MatRadioButton) => {
-        this._destroy$.next();
         this._listenButtonChange(children);
-        // children._elementRef.nativeElement.addEventListener('click', this.onClick(children), false);
       });
-
-    // this.contentChildren.forEach((btn) => {
-    //   // Name is required
-    //   btn.name = this.name;
-    //   btn._elementRef.nativeElement.addEventListener('click', this.onClick(btn), false);
-    // });
   }
-
-  // public onClick(button) {
-  //
-  //   return () => {
-  //     if (!button.disabled) {
-  //       this._onChange(button.value);
-  //     }
-  //   };
-  // }
 
   public _onChange = (value: any) => { };
 
@@ -107,9 +84,8 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   }
 
   public ngOnDestroy() {
-    for (const button of this.contentChildren.toArray()) {
-      // button._elementRef.nativeElement.removeEventListener('click', this.onClick(button), false);
-    }
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 
   public setDisabledState(isDisabled: boolean): void {
@@ -122,12 +98,11 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
 
   private _listenButtonChange(button: MatRadioButton) {
     button.name = this.name;
-
     button.change
       .pipe(
         takeUntil(this._destroy$),
       )
-      .subscribe(() => {
+      .subscribe((event: MatRadioChange) => {
         if (!button.disabled) {
           this._onChange(button.value);
         }
