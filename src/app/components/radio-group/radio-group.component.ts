@@ -51,16 +51,18 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   private _destroy$ = new Subject<void>();
 
   public ngAfterContentInit() {
-    this.contentChildren.forEach((children) => {
-      this._listenButtonChange(children);
+    this.contentChildren.forEach((child) => {
+      this._listenButtonChange(child);
     });
 
     this.contentChildren.changes
       .pipe(
         takeUntil(this._destroy$),
       )
-      .subscribe((children: MatRadioButton) => {
-        this._listenButtonChange(children);
+      .subscribe((children: QueryList<MatRadioButton>) => {
+        children.forEach((child) => {
+          this._listenButtonChange(child);
+        });
       });
   }
 
