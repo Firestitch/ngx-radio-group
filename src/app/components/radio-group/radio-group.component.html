@@ -1,7 +1,7 @@
 <fs-label-field>
   <fs-label class="fs-form-label">{{label}}</fs-label>
   <mat-radio-group
-    [ngClass]="orientation"
+    [ngClass]="[orientation, 'position-' + radioPosition ]"
     [disabled]="disabled">
     <ng-content select="mat-radio-button"></ng-content>
   </mat-radio-group>

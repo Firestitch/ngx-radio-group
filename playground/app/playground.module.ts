@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { AppMaterialModule } from './material.module';
 import { VerticalComponent } from './components/vertical/vertical.component';
 import { HorizontalComponent } from './components/horizontal/horizontal.component';
+import { VerticalMultilineComponent } from './components/vertical-multiline/vertical-multiline.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HorizontalComponent } from './components/horizontal/horizontal.componen
   declarations: [
     AppComponent,
     HorizontalComponent,
-    VerticalComponent
+    VerticalComponent,
+    VerticalMultilineComponent,
   ],
   providers: [
   ],

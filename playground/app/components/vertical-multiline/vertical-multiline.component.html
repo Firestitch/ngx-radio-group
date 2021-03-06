@@ -1,0 +1,14 @@
+<form #form="ngForm">
+  <fs-radio-group [(ngModel)]="selected" label="Radio Buttons" orientation="vertical" name="vertical">
+    <mat-radio-button *ngFor="let item of items" [value]="item">
+      <div>{{ item.name }}</div>
+      <div>{{ item.subname }}</div>
+    </mat-radio-button>
+    <mat-hint>Hint hint hint!</mat-hint>
+  </fs-radio-group>
+
+  <fieldset>
+    <legend>Selected</legend>
+    {{ selected | json }}
+  </fieldset>
+</form>

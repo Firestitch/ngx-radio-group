@@ -35,6 +35,7 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   @Input() public label: string;
   @Input() public name: string;
   @Input() public disabled: boolean;
+  @Input() public radioPosition: 'top' | 'center' = 'top';
 
   @Input()
   public compareWith = (o1: any, o2: any) => { return o1 === o2};

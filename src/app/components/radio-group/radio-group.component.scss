@@ -1,5 +1,3 @@
-
-
 :host {
   position: relative;
 
@@ -14,7 +12,17 @@
     }
 
     mat-radio-group.vertical mat-radio-button {
-        display: block;
+      display: block;
+    }
+
+    .position-top {
+      .mat-radio-label {
+        align-items: flex-start;
+
+        .mat-radio-container {
+          margin-top: 4px;
+        }
+      }
     }
 
     .mat-radio-label-content {
