@@ -1,8 +1,42 @@
 <form #form="ngForm">
   <fs-radio-group [(ngModel)]="selected" label="Radio Buttons" orientation="vertical" name="vertical">
-    <mat-radio-button *ngFor="let item of items" [value]="item">
-      <div>{{ item.name }}</div>
-      <div>{{ item.subname }}</div>
+    <mat-radio-button value="percent">
+      <div class="label">
+        Percent
+      </div>
+
+      <div class="input">
+        <mat-form-field *ngIf="selected === 'percent'">
+          <input
+            matInput
+            [(ngModel)]="value"
+            required
+            fsFormNumeric
+            fsFormMin="0"
+            fsFormMax="100"
+            name="percent_value">
+          <span matSuffix>%</span>
+        </mat-form-field>
+      </div>
+    </mat-radio-button>
+
+    <mat-radio-button value="dollar">
+      <div class="label">
+        Dollar Value
+      </div>
+
+      <div class="input">
+        <mat-form-field *ngIf="selected === 'dollar'">
+          <input
+            matInput
+            [(ngModel)]="value"
+            required
+            fsFormNumeric
+            fsFormMin="0"
+            name="dollar_value">
+          <span matPrefix>$</span>
+        </mat-form-field>
+      </div>
     </mat-radio-button>
     <mat-hint>Hint hint hint!</mat-hint>
   </fs-radio-group>
