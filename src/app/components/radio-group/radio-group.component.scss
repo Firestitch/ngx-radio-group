@@ -3,16 +3,29 @@
 
   ::ng-deep {
 
-    mat-radio-group:not(.vertical) mat-radio-button {
+    .mat-radio-group {
+      &:not(.vertical) .mat-radio-button {
         margin-right: 15px;
 
         &:last-child {
-            margin-right: 0;
+          margin-right: 0;
         }
-    }
+      }
 
-    mat-radio-group.vertical mat-radio-button {
-      display: block;
+      &.vertical {
+        .mat-radio-button {
+          display: block;
+          margin: 10px 0;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
     }
 
     .position-top {
@@ -20,13 +33,17 @@
         align-items: flex-start;
 
         .mat-radio-container {
-          margin-top: 4px;
+
         }
       }
     }
 
+    .mat-radio-label {
+      white-space: normal;
+    }
+
     .mat-radio-label-content {
-      line-height: 26px;
+      line-height: normal;
     }
   }
 }
