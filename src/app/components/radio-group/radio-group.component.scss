@@ -4,6 +4,16 @@
   ::ng-deep {
 
     .mat-radio-group {
+
+      .mat-radio-label {
+        white-space: normal;
+        min-height: 22px;
+      }
+
+      .mat-radio-label-content {
+        line-height: 22px;
+      }
+
       &:not(.vertical) .mat-radio-button {
         margin-right: 15px;
 
@@ -31,19 +41,7 @@
     .position-top {
       .mat-radio-label {
         align-items: flex-start;
-
-        .mat-radio-container {
-
-        }
       }
-    }
-
-    .mat-radio-label {
-      white-space: normal;
-    }
-
-    .mat-radio-label-content {
-      line-height: normal;
     }
   }
 }
