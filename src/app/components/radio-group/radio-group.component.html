@@ -1,5 +1,5 @@
 <fs-label-field>
-  <fs-label class="fs-form-label">{{label}}</fs-label>
+  <fs-label *ngIf="label" class="fs-form-label">{{ label }}</fs-label>
   <mat-radio-group
     [ngClass]="[orientation, 'position-' + radioPosition ]"
     [disabled]="disabled">
