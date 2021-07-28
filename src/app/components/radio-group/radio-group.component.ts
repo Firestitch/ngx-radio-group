@@ -99,6 +99,7 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   public writeValue(value: any) {
     if (value !== undefined) {
       this.updateChecked(value);
+      this._value = value;
     }
   }
 
