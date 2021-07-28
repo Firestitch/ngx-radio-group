@@ -3,32 +3,38 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
-  forwardRef,
   HostBinding,
   Input,
   OnDestroy,
+  OnInit,
+  Optional,
   QueryList,
+  Self,
   ViewChild
 } from '@angular/core';
-import { ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
+import {
+  AbstractControl,
+  ControlContainer,
+  ControlValueAccessor,
+  NgForm,
+  ValidationErrors,
+  Validator,
+  NgControl,
+} from '@angular/forms';
 import { MatRadioButton, MatRadioGroup, MatRadioChange } from '@angular/material/radio';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'fs-radio-group',
   templateUrl: './radio-group.component.html',
   styleUrls: [ 'radio-group.component.scss' ],
-  providers: [{
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => FsRadioGroupComponent),
-      multi: true
-    }
-  ],
+  providers: [],
   viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FsRadioGroupComponent implements ControlValueAccessor, AfterContentInit, OnDestroy {
+export class FsRadioGroupComponent implements Validator, ControlValueAccessor, AfterContentInit, OnInit, OnDestroy {
 
   @Input() public orientation: 'horizontal' | 'vertical' = 'horizontal';
   @Input() public label: string;
@@ -38,6 +44,11 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
 
   @Input()
   public compareWith = (o1: any, o2: any) => { return o1 === o2};
+
+  @Input()
+  public set required(value: unknown) {
+    this._required = coerceBooleanProperty(value);
+  }
 
   @ContentChildren(MatRadioButton)
   public contentChildren: QueryList<MatRadioButton>;
@@ -49,7 +60,25 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   public formWrapper = true;
 
   private _value = null;
+  private _required = false;
   private _destroy$ = new Subject<void>();
+
+  constructor(
+    @Optional() @Self() private _ngControl: NgControl,
+  ) {
+    this._ngControl.valueAccessor = this;
+  }
+
+  public ngOnInit(): void {
+    const control = this._ngControl.control;
+
+    const validators = control.validator
+      ? [control.validator, this.validate.bind(this)]
+      : this.validate.bind(this);
+
+    control.setValidators(validators);
+    control.updateValueAndValidity();
+  }
 
   public get value(): unknown {
     return this._value;
@@ -75,19 +104,7 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
           this._listenButtonChange(child);
         });
 
-        if (this.value) {
-          const selectedValueExists = Array.from(children)
-            .some((child) => {
-              return this.compareWith(this.value, child.value);
-            });
-
-          if (!selectedValueExists) {
-            // to prevent ExpressionChangedAfterItHasBeenCheckedError
-            setTimeout(() => {
-              this.value = null;
-            });
-          }
-        }
+        this._ngControl.control.updateValueAndValidity();
       });
   }
 
@@ -101,6 +118,20 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
       this.updateChecked(value);
       this._value = value;
     }
+  }
+
+  public validate(control: AbstractControl): ValidationErrors | null {
+    if (this._required) {
+      const valueExists = this._verifyValueExists();
+
+      if (!valueExists) {
+        return {
+          required: true
+        }
+      }
+    }
+
+    return null;
   }
 
   public updateChecked(value) {
@@ -135,5 +166,16 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
           this.value = button.value;
         }
       });
+  }
+
+  private _verifyValueExists(): boolean {
+    if (this.value) {
+      return Array.from(this.contentChildren)
+        .some((child) => {
+          return this.compareWith(this.value, child.value);
+        });
+    } else {
+      return null;
+    }
   }
 }
