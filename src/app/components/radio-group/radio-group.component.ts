@@ -7,7 +7,6 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Provider,
   QueryList,
   ViewChild
 } from '@angular/core';
@@ -49,7 +48,18 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
   @HostBinding('class.fs-form-wrapper')
   public formWrapper = true;
 
+  private _value = null;
   private _destroy$ = new Subject<void>();
+
+  public get value(): unknown {
+    return this._value;
+  }
+
+  public set value(value: unknown) {
+    this._value = value;
+
+    this._onChange(this._value);
+  }
 
   public ngAfterContentInit() {
     this.contentChildren.forEach((child) => {
@@ -64,6 +74,20 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
         children.forEach((child) => {
           this._listenButtonChange(child);
         });
+
+        if (this.value) {
+          const selectedValueExists = Array.from(children)
+            .some((child) => {
+              return this.compareWith(this.value, child.value);
+            });
+
+          if (!selectedValueExists) {
+            // to prevent ExpressionChangedAfterItHasBeenCheckedError
+            setTimeout(() => {
+              this.value = null;
+            });
+          }
+        }
       });
   }
 
@@ -107,7 +131,7 @@ export class FsRadioGroupComponent implements ControlValueAccessor, AfterContent
       )
       .subscribe((event: MatRadioChange) => {
         if (!button.disabled) {
-          this._onChange(button.value);
+          this.value = button.value;
         }
       });
   }
