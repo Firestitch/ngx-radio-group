@@ -50,7 +50,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
     this._required = coerceBooleanProperty(value);
   }
 
-  @ContentChildren(MatRadioButton)
+  @ContentChildren(MatRadioButton, { descendants: true })
   public contentChildren: QueryList<MatRadioButton>;
 
   @ViewChild(MatRadioGroup, { static: true })
