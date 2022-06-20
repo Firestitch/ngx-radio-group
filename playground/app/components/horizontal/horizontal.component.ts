@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'horizontal',
-  templateUrl: 'horizontal.component.html'
+  templateUrl: 'horizontal.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HorizontalComponent {
 

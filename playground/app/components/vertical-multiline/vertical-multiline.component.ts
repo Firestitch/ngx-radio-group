@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'vertical-multiline',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: [
     './vertical-multiline.component.scss',
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VerticalMultilineComponent implements OnInit {
 

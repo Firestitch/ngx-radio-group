@@ -1,6 +1,7 @@
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChildren,
   HostBinding,
@@ -21,10 +22,15 @@ import {
   Validator,
   NgControl,
 } from '@angular/forms';
+
 import { MatRadioButton, MatRadioGroup, MatRadioChange } from '@angular/material/radio';
+
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
+
+
 
 @Component({
   selector: 'fs-radio-group',
@@ -65,6 +71,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
 
   constructor(
     @Optional() @Self() private _ngControl: NgControl,
+    private _cdRef: ChangeDetectorRef,
   ) {
     this._ngControl.valueAccessor = this;
   }
@@ -104,7 +111,11 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
           this._listenButtonChange(child);
         });
 
-        this._ngControl.control.updateValueAndValidity();
+        setTimeout(() => {
+          this.updateChecked(this._value);
+          this._cdRef.markForCheck();
+          this._ngControl.control.updateValueAndValidity(); 
+        });
       });
   }
 
