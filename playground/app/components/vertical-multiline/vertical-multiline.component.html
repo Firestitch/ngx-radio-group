@@ -12,8 +12,8 @@
             [(ngModel)]="value"
             required
             fsFormNumeric
-            fsFormMin="0"
-            fsFormMax="100"
+            [fsFormMin]="0"
+            [fsFormMax]="100"
             name="percent_value">
           <span matSuffix>%</span>
         </mat-form-field>
