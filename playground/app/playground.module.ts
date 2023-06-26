@@ -40,8 +40,6 @@ import { VerticalMultilineComponent } from './components/vertical-multiline/vert
     VerticalComponent,
     VerticalMultilineComponent,
   ],
-  providers: [
-  ],
 })
 export class PlaygroundModule {
 }

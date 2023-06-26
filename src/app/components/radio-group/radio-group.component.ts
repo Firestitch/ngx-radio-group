@@ -180,13 +180,9 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   }
 
   private _verifyValueExists(): boolean {
-    if (this.value) {
-      return Array.from(this.contentChildren)
-        .some((child) => {
-          return this.compareWith(this.value, child.value);
-        });
-    } else {
-      return null;
-    }
+    return Array.from(this.contentChildren || [])
+      .some((child) => {
+        return this.compareWith(this.value, child.value);
+      });
   }
 }

@@ -16,7 +16,6 @@ export class HorizontalComponent {
     { name: 'Item 4', id: 4 }
   ];
 
-
   public compareWith(o1, o2) {
     return o1 && o2 && o1.id === o2.id
   }

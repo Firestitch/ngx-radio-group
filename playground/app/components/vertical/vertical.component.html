@@ -3,6 +3,11 @@
     <mat-radio-button *ngFor="let item of items" [value]="item.id">{{ item.name }}</mat-radio-button>
     <mat-hint>Hint hint hint!</mat-hint>
   </fs-radio-group>
+  <button 
+      (click)="test()" 
+      mat-raised-button>
+    Test
+  </button>
 
   <fieldset>
     <legend>Selected</legend>
@@ -10,5 +15,3 @@
   </fieldset>
 </form>
 
-
-<button (click)="test()">test</button>
