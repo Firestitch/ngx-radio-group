@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FsExampleModule } from '@firestitch/example';
 import { FsFormModule } from '@firestitch/form';
@@ -26,7 +25,6 @@ import { VerticalMultilineComponent } from './components/vertical-multiline/vert
         BrowserAnimationsModule,
         AppMaterialModule,
         FormsModule,
-        FlexLayoutModule,
         FsFormModule,
         FsExampleModule.forRoot(),
         FsMessageModule.forRoot(),
