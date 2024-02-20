@@ -19,27 +19,25 @@ import { VerticalMultilineComponent } from './components/vertical-multiline/vert
 
 
 @NgModule({
-  bootstrap: [ AppComponent ],
-  imports: [
-    BrowserModule,
-    FsRadioGroupModule,
-    BrowserAnimationsModule,
-    AppMaterialModule,
-    FormsModule,
-    FlexLayoutModule,
-    FsFormModule,
-    FsExampleModule.forRoot(),
-    FsMessageModule.forRoot(),
-    ToastrModule.forRoot({ preventDuplicates: true }),
-  ],
-  entryComponents: [
-  ],
-  declarations: [
-    AppComponent,
-    HorizontalComponent,
-    VerticalComponent,
-    VerticalMultilineComponent,
-  ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        FsRadioGroupModule,
+        BrowserAnimationsModule,
+        AppMaterialModule,
+        FormsModule,
+        FlexLayoutModule,
+        FsFormModule,
+        FsExampleModule.forRoot(),
+        FsMessageModule.forRoot(),
+        ToastrModule.forRoot({ preventDuplicates: true }),
+    ],
+    declarations: [
+        AppComponent,
+        HorizontalComponent,
+        VerticalComponent,
+        VerticalMultilineComponent,
+    ]
 })
 export class PlaygroundModule {
 }
