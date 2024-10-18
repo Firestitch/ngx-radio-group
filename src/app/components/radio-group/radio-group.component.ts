@@ -11,33 +11,31 @@ import {
   Optional,
   QueryList,
   Self,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import {
   AbstractControl,
   ControlContainer,
   ControlValueAccessor,
+  NgControl,
   NgForm,
   ValidationErrors,
   Validator,
-  NgControl,
 } from '@angular/forms';
 
-import { MatRadioButton, MatRadioGroup, MatRadioChange } from '@angular/material/radio';
-
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { MatRadioButton, MatRadioChange, MatRadioGroup } from '@angular/material/radio';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 
-
 @Component({
   selector: 'fs-radio-group',
   templateUrl: './radio-group.component.html',
-  styleUrls: [ 'radio-group.component.scss' ],
+  styleUrls: ['./radio-group.component.scss'],
   providers: [],
-  viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ],
+  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsRadioGroupComponent implements Validator, ControlValueAccessor, AfterContentInit, OnInit, OnDestroy {
@@ -46,15 +44,8 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   @Input() public label: string;
   @Input() public name: string;
   @Input() public disabled: boolean;
-  @Input() public radioPosition: 'top' | 'center' = 'top';
+  @Input() public radioPosition: 'top' | 'center' = 'center';
 
-  @Input()
-  public compareWith = (o1: any, o2: any) => { return o1 === o2};
-
-  @Input()
-  public set required(value: unknown) {
-    this._required = coerceBooleanProperty(value);
-  }
 
   @ContentChildren(MatRadioButton, { descendants: true })
   public contentChildren: QueryList<MatRadioButton>;
@@ -65,15 +56,26 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   @HostBinding('class.fs-form-wrapper')
   public formWrapper = true;
 
+
   private _value = null;
   private _required = false;
   private _destroy$ = new Subject<void>();
-
+  
   constructor(
     @Optional() @Self() private _ngControl: NgControl,
     private _cdRef: ChangeDetectorRef,
   ) {
     this._ngControl.valueAccessor = this;
+  }
+
+  @Input()
+  public compareWith = (o1: any, o2: any) => {
+      return o1 === o2;
+    };
+
+  @Input()
+  public set required(value: unknown) {
+    this._required = coerceBooleanProperty(value);
   }
 
   public ngOnInit(): void {
@@ -119,10 +121,16 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
       });
   }
 
-  public _onChange = (value: any) => { };
+  public _onChange = (value: any) => { 
+    //
+  };
 
-  public registerOnChange(fn: (value: any) => any): void { this._onChange = fn }
-  public registerOnTouched(fn: () => any): void {  }
+  public registerOnChange(fn: (value: any) => any): void {
+    this._onChange = fn; 
+  }
+  public registerOnTouched(fn: () => any): void { 
+    //
+  }
 
   public writeValue(value: any) {
     if (value !== undefined) {
@@ -137,8 +145,8 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
 
       if (!valueExists) {
         return {
-          required: true
-        }
+          required: true,
+        };
       }
     }
 
@@ -163,7 +171,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
 
     this.contentChildren.forEach((btn) => {
       btn.disabled = this.disabled;
-    })
+    });
   }
 
   private _listenButtonChange(button: MatRadioButton) {

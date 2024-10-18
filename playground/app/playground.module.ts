@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { FsExampleModule } from '@firestitch/example';
 import { FsFormModule } from '@firestitch/form';
@@ -27,6 +28,7 @@ import { AppMaterialModule } from './material.module';
     FsFormModule,
     FsExampleModule.forRoot(),
     FsMessageModule.forRoot(),
+    RouterModule.forRoot([]),
   ],
   declarations: [
     AppComponent,
