@@ -169,7 +169,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   public setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
 
-    this.contentChildren.forEach((btn) => {
+    this.contentChildren?.forEach((btn) => {
       btn.disabled = this.disabled;
     });
   }
