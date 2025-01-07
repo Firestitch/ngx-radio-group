@@ -23,15 +23,13 @@
           &:last-child {
             margin-bottom: 0;
           }
-        }
-      }
 
-      &.position-top {
-        .mat-internal-form-field {
-          align-items: flex-start;
+          .mat-internal-form-field {
+            align-items: flex-start;
 
-          .mdc-label {
-            padding-top: 10px;
+            label {
+              padding-top: calc((var(--mdc-radio-state-layer-size) - 20px) / 2);
+            }
           }
         }
       }

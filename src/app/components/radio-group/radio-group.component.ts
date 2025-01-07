@@ -24,7 +24,7 @@ import {
 } from '@angular/forms';
 
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { MatRadioButton, MatRadioChange, MatRadioGroup } from '@angular/material/radio';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -180,7 +180,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
       .pipe(
         takeUntil(this._destroy$),
       )
-      .subscribe((event: MatRadioChange) => {
+      .subscribe(() => {
         if (!button.disabled) {
           this.value = button.value;
         }
