@@ -27,7 +27,7 @@
           .mat-internal-form-field {
             align-items: flex-start;
 
-            label {
+            label.mdc-label {
               padding-top: calc((var(--mdc-radio-state-layer-size) - 20px) / 2);
             }
           }
