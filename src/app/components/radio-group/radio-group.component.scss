@@ -3,6 +3,10 @@
 
   ::ng-deep {
     mat-radio-group {
+      label.mdc-label {
+        cursor: pointer;
+      }
+
       &:not(.orientation-vertical) mat-radio-button {
         margin-right: 15px;
 
