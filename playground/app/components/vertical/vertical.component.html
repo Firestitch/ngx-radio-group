@@ -1,17 +1,28 @@
 <form #form="ngForm">
-  <fs-radio-group [(ngModel)]="selected" label="Radio Buttons" orientation="vertical" name="vertical">
-    <mat-radio-button *ngFor="let item of items" [value]="item.id">{{ item.name }}</mat-radio-button>
-    <mat-hint>Hint hint hint!</mat-hint>
+  <fs-radio-group
+      [(ngModel)]="selected"
+      label="Radio Buttons"
+      orientation="vertical"
+      name="vertical">
+    <mat-radio-button
+        *ngFor="let item of items"
+        [value]="item.id">
+      {{ item.name }}
+    </mat-radio-button>
+    <mat-hint>
+      Hint hint hint!
+    </mat-hint>
   </fs-radio-group>
-  <button 
-      (click)="test()" 
-      mat-raised-button>
-    Test
+  <button
+      (click)="test()"
+      mat-flat-button
+      color="primary">
+    Remove option 4
   </button>
-
   <fieldset>
-    <legend>Selected</legend>
+    <legend>
+      Selected
+    </legend>
     {{ selected | json }}
   </fieldset>
 </form>
-

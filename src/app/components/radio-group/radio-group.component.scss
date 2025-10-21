@@ -3,7 +3,7 @@
 
   ::ng-deep {
     mat-radio-group {
-      &:not(.vertical) mat-radio-button {
+      &:not(.orientation-vertical) mat-radio-button {
         margin-right: 15px;
 
         &:last-child {
@@ -11,7 +11,7 @@
         }
       }
 
-      &.vertical {
+      &.orientation-vertical {
         mat-radio-button {
           display: block;
           margin: 0;
