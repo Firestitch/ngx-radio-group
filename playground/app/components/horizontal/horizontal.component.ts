@@ -1,9 +1,26 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { FsFormModule } from '@firestitch/form';
+import { FsRadioGroupComponent } from '../../../../src/app/components/radio-group/radio-group.component';
+import { MatRadioButton } from '@angular/material/radio';
+import { MatHint } from '@angular/material/form-field';
+import { MatButton } from '@angular/material/button';
+import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'horizontal',
-  templateUrl: 'horizontal.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'horizontal',
+    templateUrl: 'horizontal.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        FormsModule,
+        FsFormModule,
+        FsRadioGroupComponent,
+        MatRadioButton,
+        MatHint,
+        MatButton,
+        JsonPipe,
+    ],
 })
 export class HorizontalComponent {
 

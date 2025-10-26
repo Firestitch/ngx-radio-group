@@ -28,15 +28,23 @@ import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { FsLabelModule } from '@firestitch/label';
+import { NgClass } from '@angular/common';
 
 
 @Component({
-  selector: 'fs-radio-group',
-  templateUrl: './radio-group.component.html',
-  styleUrls: ['./radio-group.component.scss'],
-  providers: [],
-  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-radio-group',
+    templateUrl: './radio-group.component.html',
+    styleUrls: ['./radio-group.component.scss'],
+    providers: [],
+    viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        FsLabelModule,
+        MatRadioGroup,
+        NgClass,
+    ],
 })
 export class FsRadioGroupComponent implements Validator, ControlValueAccessor, AfterContentInit, OnInit, OnDestroy {
 
