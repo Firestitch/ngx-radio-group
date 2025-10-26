@@ -1,18 +1,4 @@
-import {
-  AfterContentInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ContentChildren,
-  HostBinding,
-  Input,
-  OnDestroy,
-  OnInit,
-  Optional,
-  QueryList,
-  Self,
-  ViewChild,
-} from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, HostBinding, Input, OnDestroy, OnInit, QueryList, ViewChild, inject } from '@angular/core';
 import {
   AbstractControl,
   ControlContainer,
@@ -47,6 +33,9 @@ import { NgClass } from '@angular/common';
     ],
 })
 export class FsRadioGroupComponent implements Validator, ControlValueAccessor, AfterContentInit, OnInit, OnDestroy {
+  private _ngControl = inject(NgControl, { optional: true, self: true });
+  private _cdRef = inject(ChangeDetectorRef);
+
 
   @Input() public orientation: 'horizontal' | 'vertical' = 'horizontal';
   @Input() public label: string;
@@ -69,10 +58,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   private _required = false;
   private _destroy$ = new Subject<void>();
   
-  constructor(
-    @Optional() @Self() private _ngControl: NgControl,
-    private _cdRef: ChangeDetectorRef,
-  ) {
+  constructor() {
     this._ngControl.valueAccessor = this;
   }
 
