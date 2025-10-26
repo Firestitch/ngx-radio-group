@@ -6,17 +6,19 @@
       </div>
 
       <div class="input">
-        <mat-form-field *ngIf="selected === 'percent'">
-          <input
-            matInput
-            [(ngModel)]="value"
-            required
-            fsFormNumeric
-            [fsFormMin]="0"
-            [fsFormMax]="100"
-            name="percent_value">
-          <span matSuffix>%</span>
-        </mat-form-field>
+        @if (selected === 'percent') {
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="value"
+              required
+              fsFormNumeric
+              [fsFormMin]="0"
+              [fsFormMax]="100"
+              name="percent_value">
+            <span matSuffix>%</span>
+          </mat-form-field>
+        }
       </div>
     </mat-radio-button>
 
@@ -28,16 +30,18 @@
       </div>
 
       <div class="input">
-        <mat-form-field *ngIf="selected === 'dollar'">
-          <input
-            matInput
-            [(ngModel)]="value"
-            required
-            fsFormNumeric
-            fsFormMin="0"
-            name="dollar_value">
-          <span matPrefix>$</span>
-        </mat-form-field>
+        @if (selected === 'dollar') {
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="value"
+              required
+              fsFormNumeric
+              fsFormMin="0"
+              name="dollar_value">
+            <span matPrefix>$</span>
+          </mat-form-field>
+        }
       </div>
     </mat-radio-button>
 

@@ -1,14 +1,15 @@
 <fs-label-field>
-  <fs-label
-      *ngIf="label"
+  @if (label) {
+    <fs-label
       class="fs-form-label">
-    {{ label }}
-  </fs-label>
+      {{ label }}
+    </fs-label>
+  }
   <mat-radio-group
-      [ngClass]="['position-' + radioPosition ]"
-      [class.orientation-vertical]="orientation === 'vertical'"
-      [class.horizontal]="orientation === 'horizontal'"
-      [disabled]="disabled">
+    [ngClass]="['position-' + radioPosition ]"
+    [class.orientation-vertical]="orientation === 'vertical'"
+    [class.horizontal]="orientation === 'horizontal'"
+    [disabled]="disabled">
     <ng-content></ng-content>
   </mat-radio-group>
   <fs-label-message>

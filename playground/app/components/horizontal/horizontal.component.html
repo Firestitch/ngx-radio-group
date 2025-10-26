@@ -1,25 +1,26 @@
 <form
-    fsForm
-    [dirtySubmitButton]="false">
+  fsForm
+  [dirtySubmitButton]="false">
   <fs-radio-group
-      [(ngModel)]="selectedHorizontal"
-      [compareWith]="compareWith"
-      label="Radio Buttons"
-      name="horizontal"
-      [required]="true">
-    <mat-radio-button
-        *ngFor="let item of items"
+    [(ngModel)]="selectedHorizontal"
+    [compareWith]="compareWith"
+    label="Radio Buttons"
+    name="horizontal"
+    [required]="true">
+    @for (item of items; track item) {
+      <mat-radio-button
         [value]="item">
-      {{ item.name }}
-    </mat-radio-button>
+        {{ item.name }}
+      </mat-radio-button>
+    }
     <mat-hint>
       Hint hint hint!
     </mat-hint>
   </fs-radio-group>
   <button
-      type="submit"
-      mat-flat-button
-      color="primary">
+    type="submit"
+    mat-flat-button
+    color="primary">
     Save
   </button>
   <fieldset>
