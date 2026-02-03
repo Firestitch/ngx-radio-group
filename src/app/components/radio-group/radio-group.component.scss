@@ -33,7 +33,7 @@
             width: 100%;
 
             label.mdc-label {
-              padding-top: calc((var(--mdc-radio-state-layer-size) - 20px) / 2);
+              padding-top: calc(0.5lh);
             }
           }
         }
