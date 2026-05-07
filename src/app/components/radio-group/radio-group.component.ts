@@ -62,10 +62,11 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   public formWrapper = true;
 
 
+  private _disabledStateInitialized = false;
   private _value = null;
   private _required = false;
   private _destroy$ = new Subject<void>();
-  
+
   constructor() {
     this._ngControl.valueAccessor = this;
   }
@@ -81,6 +82,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   }
 
   public ngOnInit(): void {
+    console.log('init');
     const control = this._ngControl.control;
 
     const validators = control.validator
@@ -118,19 +120,19 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
         setTimeout(() => {
           this.updateChecked(this._value);
           this._cdRef.markForCheck();
-          this._ngControl.control.updateValueAndValidity(); 
+          this._ngControl.control.updateValueAndValidity();
         });
       });
   }
 
-  public _onChange = (value: any) => { 
+  public _onChange = (value: any) => {
     //
   };
 
   public registerOnChange(fn: (value: any) => any): void {
-    this._onChange = fn; 
+    this._onChange = fn;
   }
-  public registerOnTouched(fn: () => any): void { 
+  public registerOnTouched(fn: () => any): void {
     //
   }
 
@@ -169,8 +171,18 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   }
 
   public setDisabledState(isDisabled: boolean): void {
+    if (
+      !this._disabledStateInitialized
+      && this.disabled === undefined
+      && !isDisabled
+    ) {
+      return;
+    }
+
+    this._disabledStateInitialized = true;
     this.disabled = isDisabled;
 
+    if (this._disabledStateInitialized)
     this.contentChildren?.forEach((btn) => {
       btn.disabled = this.disabled;
     });
