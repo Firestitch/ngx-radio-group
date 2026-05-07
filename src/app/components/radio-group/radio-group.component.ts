@@ -1,4 +1,4 @@
-import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, HostBinding, Input, OnDestroy, OnInit, QueryList, ViewChild, inject } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, HostBinding, Input, OnDestroy, OnInit, Optional, QueryList, ViewChild, inject } from '@angular/core';
 import {
   AbstractControl,
   ControlContainer,
@@ -12,6 +12,8 @@ import {
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 
+import { controlContainerFactory } from '@firestitch/core';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FsLabelModule } from '@firestitch/label';
@@ -23,7 +25,13 @@ import { NgClass } from '@angular/common';
     templateUrl: './radio-group.component.html',
     styleUrls: ['./radio-group.component.scss'],
     providers: [],
-    viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
+    viewProviders: [
+        {
+            provide: ControlContainer,
+            useFactory: controlContainerFactory,
+            deps: [[new Optional(), NgForm]],
+        },
+    ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
