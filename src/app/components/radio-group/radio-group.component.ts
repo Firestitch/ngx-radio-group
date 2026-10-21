@@ -1,4 +1,4 @@
-import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, HostBinding, Input, OnDestroy, OnInit, Optional, QueryList, ViewChild, inject } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, ElementRef, HostBinding, Input, NgZone, OnDestroy, OnInit, Optional, QueryList, ViewChild, inject } from '@angular/core';
 import {
   AbstractControl,
   ControlContainer,
@@ -55,13 +55,21 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   @ContentChildren(MatRadioButton, { descendants: true })
   public contentChildren: QueryList<MatRadioButton>;
 
+  @ContentChildren(MatRadioButton, { descendants: true, read: ElementRef })
+  public contentChildElements: QueryList<ElementRef<HTMLElement>>;
+
   @ViewChild(MatRadioGroup, { static: true })
   public matRadioGroup = null;
+
+  @ViewChild(MatRadioGroup, { static: true, read: ElementRef })
+  public matRadioGroupElement: ElementRef<HTMLElement>;
 
   @HostBinding('class.fs-form-wrapper')
   public formWrapper = true;
 
 
+  private _ngZone = inject(NgZone);
+  private _resizeObserver: ResizeObserver;
   private _disabledStateInitialized = false;
   private _value = null;
   private _required = false;
@@ -123,6 +131,8 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
           this._ngControl.control.updateValueAndValidity();
         });
       });
+
+    this._observeLayout();
   }
 
   public _onChange = (value: any) => {
@@ -166,6 +176,7 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
   }
 
   public ngOnDestroy() {
+    this._resizeObserver?.disconnect();
     this._destroy$.next(null);
     this._destroy$.complete();
   }
@@ -199,6 +210,53 @@ export class FsRadioGroupComponent implements Validator, ControlValueAccessor, A
           this.value = button.value;
         }
       });
+  }
+
+  // Re-check the layout whenever the group or one of its options changes size
+  private _observeLayout(): void {
+    if (typeof ResizeObserver === 'undefined') {
+      return;
+    }
+
+    this._ngZone.runOutsideAngular(() => {
+      this._resizeObserver = new ResizeObserver(() => this._updateWrapped());
+      this._observeElements();
+    });
+
+    this.contentChildElements.changes
+      .pipe(
+        takeUntil(this._destroy$),
+      )
+      .subscribe(() => this._observeElements());
+  }
+
+  private _observeElements(): void {
+    this._resizeObserver.disconnect();
+    this._resizeObserver.observe(this.matRadioGroupElement.nativeElement);
+    this.contentChildElements
+      .forEach((element) => this._resizeObserver.observe(element.nativeElement));
+  }
+
+  // Horizontal options switch to an even grid only once they no longer fit on
+  // one row. They're measured in the one-row layout, since the grid's columns
+  // are sized from them.
+  private _updateWrapped(): void {
+    const group = this.matRadioGroupElement.nativeElement;
+
+    if (this.orientation !== 'horizontal') {
+      return;
+    }
+
+    group.classList.remove('wrapped');
+
+    const widths = this.contentChildElements
+      .map((element) => element.nativeElement.getBoundingClientRect().width);
+    const gap = parseFloat(getComputedStyle(group).columnGap) || 0;
+    const rowWidth = widths.reduce((sum, width) => sum + width, 0) + gap * (widths.length - 1);
+
+    group.style.setProperty('--fs-radio-group-column-width', `${Math.ceil(Math.max(0, ...widths))}px`);
+    // Half a pixel of slack so subpixel rounding doesn't wrap a row that fits
+    group.classList.toggle('wrapped', rowWidth > group.getBoundingClientRect().width + 0.5);
   }
 
   private _verifyValueExists(): boolean {

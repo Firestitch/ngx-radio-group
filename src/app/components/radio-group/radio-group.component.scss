@@ -7,11 +7,28 @@
         cursor: pointer;
       }
 
-      &:not(.orientation-vertical) mat-radio-button {
-        margin-right: 15px;
+      // Horizontal options share a row and wrap when they run out of room
+      &.horizontal {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 15px;
 
-        &:last-child {
-          margin-right: 0;
+        // Once they wrap, every option takes a column as wide as the widest
+        // one, so wrapped rows line up as a grid instead of trailing ragged
+        &.wrapped {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, min(100%, var(--fs-radio-group-column-width)));
+          // Keep each option at its own width, which is what gets measured
+          justify-items: start;
+        }
+
+        // On phones more than two options stack vertically
+        @media (max-width: 599px) {
+          &:has(mat-radio-button:nth-of-type(3)) {
+            display: grid;
+            grid-template-columns: 100%;
+            justify-items: start;
+          }
         }
       }
 
